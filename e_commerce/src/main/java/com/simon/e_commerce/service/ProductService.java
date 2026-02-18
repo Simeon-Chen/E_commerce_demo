@@ -1,7 +1,7 @@
-package com.simon.e_commerce.dao;
+package com.simon.e_commerce.service;
 
 import com.simon.e_commerce.model.Product;
 
-public interface ProductDao {
+public interface ProductService {
     Product getProductById(int id);
 }

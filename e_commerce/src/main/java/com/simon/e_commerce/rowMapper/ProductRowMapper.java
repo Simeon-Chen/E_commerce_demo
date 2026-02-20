@@ -1,5 +1,6 @@
 package com.simon.e_commerce.rowMapper;
 
+import com.simon.e_commerce.constant.ProductCategory;
 import com.simon.e_commerce.model.Product;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -13,7 +14,9 @@ public class ProductRowMapper implements RowMapper<Product> {
         Product product = new Product();
         product.setProductId(rs.getInt("product_id"));
         product.setProductName(rs.getString("product_name"));
-        product.setCategory(rs.getString("category"));
+        String productStr = rs.getString("category");
+        ProductCategory productCategory = ProductCategory.valueOf(productStr);
+        product.setCategory(productCategory);
         product.setDescription(rs.getString("description"));
         product.setPrice(rs.getInt("price"));
         product.setStock(rs.getInt("stock"));

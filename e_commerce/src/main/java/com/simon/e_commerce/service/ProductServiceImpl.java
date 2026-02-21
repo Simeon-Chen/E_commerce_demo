@@ -1,5 +1,6 @@
 package com.simon.e_commerce.service;
 
+import com.simon.e_commerce.constant.ProductCategory;
 import com.simon.e_commerce.dao.ProductDao;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
@@ -14,8 +15,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts() {
-        return productDao.getProducts();
+    public List<Product> getProducts(ProductCategory category, String search) {
+        return productDao.getProducts(category, search);
     }
 
     public Product getProductById(int id){

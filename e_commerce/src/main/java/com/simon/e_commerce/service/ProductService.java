@@ -1,5 +1,6 @@
 package com.simon.e_commerce.service;
 
+import com.simon.e_commerce.constant.ProductCategory;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> getProducts();
+    List<Product> getProducts(ProductCategory category, String search);
 
     Product getProductById(int id);
 

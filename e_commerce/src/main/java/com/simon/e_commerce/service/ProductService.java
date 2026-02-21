@@ -3,7 +3,12 @@ package com.simon.e_commerce.service;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
 
+import java.util.List;
+
 public interface ProductService {
+
+    List<Product> getProducts();
+
     Product getProductById(int id);
 
     Integer createProduct(ProductRequest productRq);

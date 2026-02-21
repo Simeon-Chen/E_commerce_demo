@@ -2,6 +2,7 @@ package com.simon.e_commerce.service;
 
 import com.simon.e_commerce.constant.ProductCategory;
 import com.simon.e_commerce.dao.ProductDao;
+import com.simon.e_commerce.dto.ProductQueryParams;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
-        return productDao.getProducts(category, search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     public Product getProductById(int id){

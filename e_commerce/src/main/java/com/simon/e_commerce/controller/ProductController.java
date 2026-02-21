@@ -1,6 +1,7 @@
 package com.simon.e_commerce.controller;
 
 import com.simon.e_commerce.constant.ProductCategory;
+import com.simon.e_commerce.dto.ProductQueryParams;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
 import com.simon.e_commerce.service.ProductService;
@@ -23,7 +24,11 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProducts(
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search) {
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }

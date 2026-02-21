@@ -1,6 +1,7 @@
 package com.simon.e_commerce.dao;
 
 import com.simon.e_commerce.constant.ProductCategory;
+import com.simon.e_commerce.dto.ProductQueryParams;
 import com.simon.e_commerce.dto.ProductRequest;
 import com.simon.e_commerce.model.Product;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public interface ProductDao {
 
-    List<Product> getProducts(ProductCategory category, String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(int id);
 

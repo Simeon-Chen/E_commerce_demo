@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7034076-b384-471c-b9f1-e43458cff42d" name="Changes" comment="查詢商品">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/rowMapper/ProductRowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/service/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/E_commerce_demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E_commerce_demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_commerce/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/e_commerce/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/dao/ProductDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/e_commerce/src/main/java/com/simon/e_commerce/dao/ProductDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e_commerce/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/e_commerce/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,20 +130,8 @@
       <workItem from="1771413000374" duration="212000" />
       <workItem from="1771413215451" duration="325000" />
       <workItem from="1771413548188" duration="3823000" />
-      <workItem from="1771418149872" duration="2301000" />
-      <workItem from="1771420465522" duration="1088000" />
-      <workItem from="1771421562403" duration="451000" />
-      <workItem from="1771422022300" duration="531000" />
+      <workItem from="1771418149872" duration="1331000" />
     </task>
-    <task id="LOCAL-00001" summary="查詢商品">
-      <option name="closed" value="true" />
-      <created>1771419513521</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1771419513521</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
 
-public class User {
+public class Users {
     private Integer userId;
     private String email;
     @JsonIgnore
@@ -40,7 +40,7 @@ public class User {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

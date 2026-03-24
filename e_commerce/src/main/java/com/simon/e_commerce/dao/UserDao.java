@@ -1,13 +1,13 @@
 package com.simon.e_commerce.dao;
 
 import com.simon.e_commerce.dto.UserRegisterRequest;
-import com.simon.e_commerce.model.User;
+import com.simon.e_commerce.model.Users;
 
 public interface UserDao {
 
-    User getUserById(Integer id);
+    Users getUserById(Integer id);
 
-    User getUserByEmail(String email);
+    Users getUserByEmail(String email);
 
     Integer createUser(UserRegisterRequest userRegisterRequest);
 }

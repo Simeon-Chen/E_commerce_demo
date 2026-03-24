@@ -1,7 +1,7 @@
 package com.simon.e_commerce.dao;
 
 import com.simon.e_commerce.dto.UserRegisterRequest;
-import com.simon.e_commerce.model.User;
+import com.simon.e_commerce.model.Users;
 import com.simon.e_commerce.rowMapper.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -22,13 +22,13 @@ public class UserDaoImpl implements UserDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public User getUserById(Integer id) {
-        String sql = "SELECT user_id, email, password, created_date, last_modified_date FROM user " +
+    public Users getUserById(Integer id) {
+        String sql = "SELECT user_id, email, password, created_date, last_modified_date FROM users " +
                 "WHERE user_id = :userId";
         Map<String, Object> params = new HashMap<>();
         params.put("userId", id);
 
-        List<User> userList = namedParameterJdbcTemplate.query(sql, params, new UserRowMapper());
+        List<Users> userList = namedParameterJdbcTemplate.query(sql, params, new UserRowMapper());
 
         if (userList != null && userList.size() > 0) {
             return userList.get(0);
@@ -38,13 +38,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserByEmail(String email) {
-        String sql = "SELECT user_id, email, password, created_date, last_modified_date FROM user " +
+    public Users getUserByEmail(String email) {
+        String sql = "SELECT user_id, email, password, created_date, last_modified_date FROM users " +
                 "WHERE email = :email";
         Map<String, Object> params = new HashMap<>();
         params.put("email", email);
 
-        List<User> userList = namedParameterJdbcTemplate.query(sql, params, new UserRowMapper());
+        List<Users> userList = namedParameterJdbcTemplate.query(sql, params, new UserRowMapper());
 
         if (userList != null && userList.size() > 0) {
             return userList.get(0);
@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Integer createUser(UserRegisterRequest userRegisterRequest) {
-        String sql = "INSERT INTO user(email, password, created_date, last_modified_date)" +
+        String sql = "INSERT INTO users(email, password, created_date, last_modified_date)" +
                 "VALUES (:email, :password, :created_date, :last_modified_date)";
 
         Map<String, Object> params = new HashMap<>();

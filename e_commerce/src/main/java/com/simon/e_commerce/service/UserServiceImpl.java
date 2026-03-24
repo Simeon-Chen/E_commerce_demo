@@ -3,7 +3,7 @@ package com.simon.e_commerce.service;
 import com.simon.e_commerce.dao.UserDao;
 import com.simon.e_commerce.dto.UserLoginRequest;
 import com.simon.e_commerce.dto.UserRegisterRequest;
-import com.simon.e_commerce.model.User;
+import com.simon.e_commerce.model.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +21,14 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User getUserById(Integer id) {
+    public Users getUserById(Integer id) {
         return userDao.getUserById(id);
     }
 
     @Override
     public Integer register(UserRegisterRequest userRegisterRequest) {
         // 檢查email是否已註冊
-        User user = userDao.getUserByEmail(userRegisterRequest.getEmail());
+        Users user = userDao.getUserByEmail(userRegisterRequest.getEmail());
         if (user != null) {
             log.warn("該email {}已被註冊", userRegisterRequest.getEmail());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -42,8 +42,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(UserLoginRequest userLoginRequest) {
-        User user = userDao.getUserByEmail(userLoginRequest.getEmail());
+    public Users login(UserLoginRequest userLoginRequest) {
+        Users user = userDao.getUserByEmail(userLoginRequest.getEmail());
 
         // 檢查user是否存在
         if (user == null) {

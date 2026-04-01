@@ -4,6 +4,7 @@ import com.simon.e_commerce.dao.OrderDao;
 import com.simon.e_commerce.dao.ProductDao;
 import com.simon.e_commerce.dto.BuyItem;
 import com.simon.e_commerce.dto.CreateOrderRequest;
+import com.simon.e_commerce.model.Order;
 import com.simon.e_commerce.model.OrderItem;
 import com.simon.e_commerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,17 @@ public class OrderServiceImp implements OrderService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
+    }
 
     @Transactional
     @Override

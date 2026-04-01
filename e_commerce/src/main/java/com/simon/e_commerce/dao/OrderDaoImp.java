@@ -1,6 +1,9 @@
 package com.simon.e_commerce.dao;
 
+import com.simon.e_commerce.model.Order;
 import com.simon.e_commerce.model.OrderItem;
+import com.simon.e_commerce.rowMapper.OrderItemMapper;
+import com.simon.e_commerce.rowMapper.OrderRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -18,6 +21,37 @@ public class OrderDaoImp implements OrderDao{
 
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        String sql = "select order_id, user_id, total_amount, created_date, last_modified_date from `order` where order_id = :orderId";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("orderId", orderId);
+
+        List<Order> list = namedParameterJdbcTemplate.query(sql, params, new OrderRowMapper());
+
+        if (list != null && list.size() > 0) {
+            return (Order) list.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<OrderItem> getOrderItemsByOrderId(Integer orderId) {
+        String sql = "select oi.order_item_id, oi.order_id, oi.product_id, oi.quantity, p.product_name, p.image_url " +
+                " from order_item as oi " +
+                " LEFT JOIN product as p ON oi.product_id = p.product_id " +
+                " WHERE oi.order_id = :orderId";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("orderId", orderId);
+
+        List<OrderItem> orderItemList = namedParameterJdbcTemplate.query(sql, params, new OrderItemMapper());
+
+        return orderItemList;
+    }
 
     @Override
     public Integer createOrder(Integer userId, Integer totalAmount) {

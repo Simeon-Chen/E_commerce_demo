@@ -5,6 +5,7 @@ import com.simon.e_commerce.dao.ProductDao;
 import com.simon.e_commerce.dao.UserDao;
 import com.simon.e_commerce.dto.BuyItem;
 import com.simon.e_commerce.dto.CreateOrderRequest;
+import com.simon.e_commerce.dto.OrderQueryParams;
 import com.simon.e_commerce.model.Order;
 import com.simon.e_commerce.model.OrderItem;
 import com.simon.e_commerce.model.Product;
@@ -33,6 +34,22 @@ public class OrderServiceImp implements OrderService {
 
     @Autowired
     private UserDao userDao;
+
+    @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orderList = orderDao.getOrders(orderQueryParams);
+
+        for (Order order : orderList) {
+            List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(order.getOrderId());
+            order.setOrderItemList(orderItemList);
+        }
+        return orderList;
+    }
 
     @Override
     public Order getOrderById(Integer orderId) {
